@@ -16,6 +16,7 @@ public class Exemplo {
 				matriz[l][c] = ler.nextInt();
 			}
 		}
+
 		System.out.println("Quantidade de linhas na matriz: "+matriz.length);
 		System.out.println("Quantidade de colunas na matriz: "+matriz[0].length);
 		//Mostrar a matriz na tela
