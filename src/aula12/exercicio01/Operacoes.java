@@ -30,4 +30,12 @@ public class Operacoes {
 		}
 		return resp;
 	}
+
+	float fatorial(){
+		int resp = 1;
+		for(int i=1;i<=n1;i++){
+			resp*=i;
+		}
+		return resp;
+	}
 }
