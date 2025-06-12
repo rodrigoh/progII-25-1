@@ -1,11 +1,18 @@
 package aula15;
 
+import java.util.List;
+
 public class Lista<T> {
 	private T[] elementos;
 	private int tamanho;
 
 	public Lista(int capacidade){
 		elementos = (T[]) new Object[capacidade];
+		tamanho = 0;
+	}
+
+	public Lista(){
+		elementos = (T[]) new Object[10];
 		tamanho = 0;
 	}
 
@@ -46,6 +53,15 @@ public class Lista<T> {
 		}
 	}
 
+	public int ultimaPosicaoDe(T elemento){
+		int posicao = -1;
+		for(int i=0;i<tamanho;i++){
+			if(elementos[i].equals(elemento))
+				posicao = i;
+		}
+		return posicao;
+	}
+
 	/**
 	 * Método que retorna a posição de determinado elemento na lista
 	 * @param elemento a ser procurado
@@ -65,11 +81,35 @@ public class Lista<T> {
 		}
 		return elementos[posicao];
 	}
-	//Construtor que não recebe capacidade inicial
-	//Verifica tamanho
-	//Está vazio
-	//Ultima posição de
-	//Contém
+
+	public int tamanho(){
+		return tamanho;
+	}
+
+	public boolean estaVazia(){
+		return tamanho==0;
+	}
+	public boolean contem(T elemento){
+		for(int i=0;i<tamanho;i++){
+			if(elementos[i].equals(elemento))
+				return true;
+		}
+		return false;
+	}
+
+	public void limpar(){
+		tamanho=0;
+	}
+
+	public boolean remove(T elemento){
+		int posicao = posicaoDe(elemento);
+		if(posicao>=0){
+			remove(posicao);
+			return true;
+		}
+		return false;
+	}
+
 	//Remove pelo elemento
 	public T remove(int posicao){
 		if(posicao<0 || posicao>=tamanho){
